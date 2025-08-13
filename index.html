@@ -18,5 +18,17 @@
 <body>
     <h1>Добро пожаловать на сайт!</h1>
     <p>Это минимальная HTML страница с подключённой аналитикой через gtag.js.</p>
+    <button onclick="sendEvent()">Нажми меня</button>
+
+    <script>
+      function sendEvent() {
+        gtag('event', 'button_click', {
+          'event_category': 'interaction',
+          'event_label': 'Главная кнопка',
+          'value': 1
+        });
+        alert('Событие отправлено!');
+      }
+    </script>
 </body>
 </html>
