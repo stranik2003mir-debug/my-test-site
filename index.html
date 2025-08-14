@@ -21,6 +21,8 @@
     <button onclick="sendEvent()">футбольный</button>
 
     <script>
+        document.querySelector('#myLink').addEventListener('click',function(e) {gtag('event','outbound_click', {link_url: this.href,link_text: this.textContent});
+                                                                               });
       function sendEvent() {
         gtag('event', 'button_click', {
           'event_category': 'interaction',
