@@ -8,24 +8,79 @@
     <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0S98Y0R39"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-E0S98Y0R39');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-E0S98Y0R39');
     </script>
 
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){
-        w[l]=w[l]||[];
-        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-        var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-PLZK4H5S');
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PLZK4H5S');
     </script>
     <!-- End Google Tag Manager -->
-
 </head>
-<b
+<body>
+
+    <h1>Добро пожаловать!</h1>
+    <p>Пример кнопки и ссылки с отслеживанием событий.</p>
+
+    <!-- Кнопка -->
+    <button onclick="sendEvent()">Нажми меня</button>
+
+    <!-- Внешняя ссылка -->
+    <p><a href="https://example.com" id="myLink" target="_blank">Перейти на внешний сайт</a></p>
+
+    <script>
+        // Ждём загрузки DOM
+        document.addEventListener('DOMContentLoaded', function () {
+            const link = document.querySelector('#myLink');
+            if (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Остановить переход
+                    const url = this.href;
+
+                    // Отправить событие
+                    gtag('event', 'outbound_click', {
+                        'event_category': 'outbound',
+                        'event_label': url,
+                        'link_url': url,
+                        'link_text': this.textContent
+                    });
+
+                    // Перейти на ссылку после задержки
+                    setTimeout(() => {
+                        window.open(url, '_blank');
+                    }, 300);
+                });
+            }
+        });
+
+        function sendEvent() {
+            gtag('event', 'button_click', {
+                'event_category': 'interaction',
+                'event_label': 'Главная кнопка',
+                'value': 1
+            });
+            alert('Событие отправлено!');
+        }
+    </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLZK4H5S"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+</body>
+</html>
+
