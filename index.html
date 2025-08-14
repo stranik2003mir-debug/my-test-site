@@ -15,34 +15,17 @@
     </script>
 
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PLZK4H5S');</script>
-<!-- End Google Tag Manager -->
-    <!-- End Google Analytics -->
-</head>
-<body>
-    <h1>Добро пожаловать на сайт!</h1>
-    <p>Это минимальная HTML страница с подключённой аналитикой через gtag.js.</p>
-    <button onclick="sendEvent()">футбольный</button>
-
     <script>
-        document.querySelector('#myLink').addEventListener('click',function(e) {gtag('event','outbound_click', {link_url: this.href,link_text: this.textContent});
-                                                                               });
-      function sendEvent() {
-        gtag('event', 'button_click', {
-          'event_category': 'interaction',
-          'event_label': 'Главная кнопка',
-          'value': 1
-        });
-        alert('Событие отправлено!');
-      }
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PLZK4H5S');
     </script>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLZK4H5S"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-</body>
-</html>
+    <!-- End Google Tag Manager -->
+
+</head>
+<b
